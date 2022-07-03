@@ -1,7 +1,7 @@
 const transport = require("./createTransport");
 
 module.exports = function sendVerifyMail(ctx) {
-  if (ctx.headers.authorization !== process.env.BIFROST_TOKEN) { 
+  if (ctx.headers.authorization !== process.env.WEBHOOKS_TOKEN) { 
     return ctx.status(403).message('Non autorisé'); 
   }
   const { url, host, email } = ctx.request.body;
